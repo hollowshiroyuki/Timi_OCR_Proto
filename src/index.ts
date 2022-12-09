@@ -16,8 +16,7 @@ const Upscaler = require('upscaler/node');
   const lang = 'fra';
 
   console.log(`Opening ${file}`)
-  const image = tf.node.decodeImage(fs.readFileSync(file), 3);
-  const upscaledTensor = await upscaler.upscale(image, {
+  const upscaledTensor = await upscaler.upscale(file, {
     output: 'tensor',
   });
   const upscaledImage = await tf.node.encodePng(upscaledTensor);
